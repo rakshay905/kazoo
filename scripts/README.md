@@ -428,12 +428,12 @@ Options:
 -s BASE_URL             Defaults to http://localhost:8000; include the http(s) scheme
 ```
 
-## format-json.sh
+## format-json.py
 
 Python script to format JSON files (like CouchDB views, JSON schemas) and write the formatted version back to the file. 'make apis' runs this as part of its instructions.
 
 ```shell
-./scripts/format-json.sh path/to/file.json [path/to/other/file.json,...]
+./scripts/format-json.py path/to/file.json [path/to/other/file.json,...]
 ```
 
 

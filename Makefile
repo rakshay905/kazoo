@@ -261,15 +261,15 @@ code_checks:
 apis: schemas
 	@ERL_LIBS=deps:core:applications $(ROOT)/scripts/generate-api-endpoints.escript
 	@$(ROOT)/scripts/generate-doc-schemas.sh `egrep -rl '(#+) Schema' core/ applications/ | grep -v '.[h|e]rl'`
-	@$(ROOT)/scripts/format-json.sh applications/crossbar/priv/api/swagger.json
-	@$(ROOT)/scripts/format-json.sh $(shell find applications core -wholename '*/api/*.json')
+	@$(ROOT)/scripts/format-json.py applications/crossbar/priv/api/swagger.json
+	@$(ROOT)/scripts/format-json.py $(shell find applications core -wholename '*/api/*.json')
 	@ERL_LIBS=deps:core:applications $(ROOT)/scripts/generate-fs-headers-hrl.escript
 	@ERL_LIBS=deps:core:applications $(ROOT)/scripts/generate-kzd-builders.escript
 
 .PHONY: schemas
 schemas:
 	@ERL_LIBS=deps:core:applications $(ROOT)/scripts/generate-schemas.escript $(CHANGED)
-	@$(ROOT)/scripts/format-json.sh $(shell find applications core -wholename '*/schemas/*.json')
+	@$(ROOT)/scripts/format-json.py $(shell find applications core -wholename '*/schemas/*.json')
 
 DOCS_ROOT=$(ROOT)/doc/mkdocs
 docs: docs-validate docs-report docs-setup docs-build

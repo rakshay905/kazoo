@@ -102,7 +102,7 @@ app_src:
 
 json: JSON = $(shell find . -name '*.json')
 json:
-	@$(ROOT)/scripts/format-json.sh $(JSON)
+	@$(ROOT)/scripts/format-json.py $(JSON)
 
 
 compile-test: clean-test $(COMPILE_MOAR) test/$(PROJECT).app json
